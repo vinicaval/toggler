@@ -10,5 +10,7 @@ namespace Toggler.Core.Entity
 
         public string Description { get; set; }
 
+        public bool Active { get; set; }
+
     }
 }

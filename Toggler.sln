@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Toggler", "Toggler\Toggler.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toggler.Core", "Toggler.Core\Toggler.Core.csproj", "{9BABF471-70BF-4AF6-A0E0-8BECBAC61828}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toggler.UnitTest", "Toggler.UnitTest\Toggler.UnitTest.csproj", "{406B0690-5744-4B46-8ED8-8EFD9F6E05B9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{9BABF471-70BF-4AF6-A0E0-8BECBAC61828}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BABF471-70BF-4AF6-A0E0-8BECBAC61828}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BABF471-70BF-4AF6-A0E0-8BECBAC61828}.Release|Any CPU.Build.0 = Release|Any CPU
+		{406B0690-5744-4B46-8ED8-8EFD9F6E05B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{406B0690-5744-4B46-8ED8-8EFD9F6E05B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{406B0690-5744-4B46-8ED8-8EFD9F6E05B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{406B0690-5744-4B46-8ED8-8EFD9F6E05B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

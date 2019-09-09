@@ -6,26 +6,26 @@ namespace Toggler.Core.Repository.Builder
 {
     public class ApplicationFeatureBuilder
     {
-        public IEnumerable<ApplicationFeature> Build(IEnumerable<ApplicationFeatureDto> appFeatureDto)
+        public Application Build(IEnumerable<ApplicationFeatureDto> appFeatureDto)
         {
-            return appFeatureDto.Select(a =>
-                new ApplicationFeature()
+            var app = appFeatureDto.First();
+
+            var application = new Application()
+            {
+                Id = app.IDApplication,
+                Name = app.NameApplication,
+                Url = app.UrlApplication,
+                Features = appFeatureDto.Select(a => new Feature
                 {
-                    Application = new Application()
-                    {
-                        Id = a.IDApplication,
-                        Name = a.NameApplication,
-                        Url = a.UrlApplication
-                    },
-                    Feature = new Feature()
-                    {
-                        Id = a.IDFeature,
-                        Name = a.NameFeature,
-                        Description = a.DescriptionFeature
-                    },
+                    Id = a.IDFeature,
+                    Name = a.NameFeature,
+                    Description = a.DescriptionFeature,
                     Active = a.Active
-                }
-            );
+                })
+            };
+
+            return application;
         }
     }
 }
+

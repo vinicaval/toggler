@@ -16,10 +16,10 @@ export class NewFeature extends Component {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 ...this.state
-            }).then(res =>
-                window.location.href = '/features'
-            )
-        });
+            })
+        }).then(res =>
+            window.location.href = '/features'
+        );
     };
 
     render() {

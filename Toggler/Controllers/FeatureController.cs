@@ -25,12 +25,6 @@ namespace Toggler.Controllers
             return await _featureRepository.GetAllAsync();
         }
 
-        [HttpGet("{id}")]
-        public async Task<IEnumerable<ApplicationFeature>> GetByApplicationId(Guid id)
-        {
-            return await _featureRepository.GetByApplicationIdAsync(id);
-        }
-
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] Feature feature)
         {

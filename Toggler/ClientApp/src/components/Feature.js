@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Glyphicon } from 'react-bootstrap';
 
 export class Feature extends Component {
     displayName = Feature.name
@@ -22,6 +23,7 @@ export class Feature extends Component {
             <th>Id</th>
             <th>Name</th>
             <th>Description</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -30,6 +32,7 @@ export class Feature extends Component {
                   <td>{feature.id}</td>
                   <td>{feature.name}</td>
                   <td>{feature.description}</td>
+                  <td><button type="button"><Glyphicon glyph='pencil' />Edit</button></td>
             </tr>
           )}
         </tbody>
