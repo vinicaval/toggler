@@ -1,6 +1,12 @@
 # Toggler
 
-A toggle feature for applications
+A toggle feature for applications. 
+It's a WIP project, there's missing features like:
+- Auth
+- CI and CD
+- migrations
+- Tests
+
 
 ## Table of Contents
 

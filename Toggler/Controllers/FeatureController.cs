@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Toggler.Core.Entity;
@@ -22,6 +23,12 @@ namespace Toggler.Controllers
         public async Task<IEnumerable<Feature>> Get()
         {
             return await _featureRepository.GetAllAsync();
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IEnumerable<ApplicationFeature>> GetByApplicationId(Guid id)
+        {
+            return await _featureRepository.GetByApplicationIdAsync(id);
         }
 
         [HttpPost]

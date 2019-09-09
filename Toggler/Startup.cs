@@ -11,6 +11,7 @@ using Toggler.Service;
 using Toggler.Core.Repository;
 using Swashbuckle.AspNetCore.Swagger;
 using Microsoft.AspNetCore.SpaServices.Webpack;
+using Toggler.Core.Repository.Builder;
 
 namespace Toggler
 {
@@ -49,7 +50,8 @@ namespace Toggler
             {
                 SQL_CONNECTION = Environment.GetEnvironmentVariable(nameof(EnvironmentVariable.SQL_CONNECTION))
             });
-
+            
+            services.AddTransient<ApplicationFeatureBuilder>();
             services.AddTransient<ApplicationRepository>();
             services.AddTransient<FeatureRepository>();
         }
