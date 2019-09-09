@@ -10,6 +10,7 @@ using System;
 using Toggler.Service;
 using Toggler.Core.Repository;
 using Swashbuckle.AspNetCore.Swagger;
+using Microsoft.AspNetCore.SpaServices.Webpack;
 
 namespace Toggler
 {
@@ -25,6 +26,7 @@ namespace Toggler
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
 
             services.AddSpaStaticFiles(configuration =>
             {
@@ -63,18 +65,7 @@ namespace Toggler
                 app.UseExceptionHandler("/Error");
                 app.UseHsts();
             }
-
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
-            app.UseSpaStaticFiles();
-
-            
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller}/{action=Index}/{id?}");
-            });
 
             app.UseSwagger();
 
@@ -83,10 +74,24 @@ namespace Toggler
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Api Toggler V1");
             });
 
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller}/{action=Index}/{id?}");
+
+                routes.MapSpaFallbackRoute(
+                  name: "spa-fallback",
+                  defaults: new { controller = "Home", action = "Index" });
+            });
+
+            app.UseStaticFiles();
+            app.UseSpaStaticFiles();
+
             app.UseSpa(spa =>
             {
                 spa.Options.SourcePath = "ClientApp";
-
+                
                 if (env.IsDevelopment())
                 {
                     spa.UseReactDevelopmentServer(npmScript: "start");

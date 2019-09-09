@@ -6,7 +6,9 @@ using Toggler.Core.Repository;
 
 namespace Toggler.Controllers
 {
+    [Produces("application/json")]
     [Route("api/[controller]")]
+    [ApiController]
     public class ApplicationController : Controller
     {
         private readonly ApplicationRepository _applicationRepository;
@@ -16,10 +18,18 @@ namespace Toggler.Controllers
             _applicationRepository = applicationRepository;
         }
 
-        [HttpGet("[action]")]
+        [HttpGet()]
         public async Task<IEnumerable<Application>> Get()
         {
-            return await _applicationRepository.GetAsync();
+            return await _applicationRepository.GetAllAsync();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody] Application application)
+        {
+            await _applicationRepository.InsertAsync(application);
+
+            return Ok();
         }
     }
 }

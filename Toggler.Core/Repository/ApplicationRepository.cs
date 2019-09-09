@@ -36,7 +36,7 @@ namespace Toggler.Core.Repository
             {
                 StringBuilder sb = new StringBuilder();
                 sb.AppendLine("INSERT INTO [Application] (Name, Url)");
-                sb.AppendLine("VALUES @Name, @Url");
+                sb.AppendLine("VALUES (@Name, @Url)");
 
                 await conn.ExecuteAsync(sb.ToString(), application);
 

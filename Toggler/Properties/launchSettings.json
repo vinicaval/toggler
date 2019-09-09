@@ -20,7 +20,7 @@
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "SQL_CONNECTION": "--YOUR--SQL--CONNECTION--STRING--HERE"
+        "SQL_CONNECTION": "Server=(LocalDB)\\MSSQLLocalDB;Initial Catalog=qm-local;Persist Security Info=False;"
       },
       "applicationUrl": "https://localhost:5001;http://localhost:5000"
     },
@@ -31,7 +31,7 @@
       "environmentVariables": {
         "ASPNETCORE_URLS": "https://+:443;http://+:80",
         "ASPNETCORE_HTTPS_PORT": "44348",
-        "SQL_CONNECTION": "--YOUR--SQL--CONNECTION--STRING--HERE"
+        "SQL_CONNECTION": "Server=(LocalDB)\\MSSQLLocalDB;Initial Catalog=qm-local;Persist Security Info=False;"
       },
       "httpPort": 45208,
       "useSSL": true,

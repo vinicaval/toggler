@@ -17,6 +17,20 @@ namespace Toggler.Core.Repository
             _connectionOptions = connectionOptions;
         }
 
+        public async Task<IEnumerable<Feature>> GetAllAsync()
+        {
+            using (var conn = new SqlConnection(_connectionOptions.SQL_CONNECTION))
+            {
+
+                StringBuilder sb = new StringBuilder();
+                sb.AppendLine("SELECT Id, Name, Description");
+                sb.AppendLine("FROM Feature F");
+
+                return await conn.QueryAsync<Feature>(sb.ToString());
+
+            }
+        }
+
         public async Task<IEnumerable<Feature>> GetAsync(Guid applicationId)
         {
             using (var conn = new SqlConnection(_connectionOptions.SQL_CONNECTION)) {
@@ -37,8 +51,8 @@ namespace Toggler.Core.Repository
             using (var conn = new SqlConnection(_connectionOptions.SQL_CONNECTION))
             {
                 StringBuilder sb = new StringBuilder();
-                sb.AppendLine("INSERT INTO [Feature] (Name, Active)");
-                sb.AppendLine("VALUES @Name, @Active");
+                sb.AppendLine("INSERT INTO [Feature] (Name, Description)");
+                sb.AppendLine("VALUES (@Name, @Description)");
 
                 await conn.ExecuteAsync(sb.ToString(),feature);
             }
