@@ -6,6 +6,7 @@ import { Application } from './components/Application';
 import { Feature } from './components/Feature';
 import { NewFeature } from './components/NewFeature';
 import { NewApplication } from './components/NewApplication';
+import { DetailsApplication } from './components/DetailsApplication';
 
 export default class App extends Component {
   displayName = App.name
@@ -18,6 +19,7 @@ export default class App extends Component {
         <Route exact path='/applications' component={Application} />
         <Route path='/features/new' component={NewFeature} />
         <Route path='/applications/new' component={NewApplication} />
+        <Route path='/application/details/:id' component={DetailsApplication} />    
       </Layout>
     );
   }

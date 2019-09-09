@@ -32,7 +32,6 @@ export class Feature extends Component {
                   <td>{feature.id}</td>
                   <td>{feature.name}</td>
                   <td>{feature.description}</td>
-                  <td><button type="button"><Glyphicon glyph='pencil' />Edit</button></td>
             </tr>
           )}
         </tbody>

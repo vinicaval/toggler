@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 export class Application extends Component {
     displayName = Application.name
@@ -12,7 +13,7 @@ export class Application extends Component {
       .then(data => {
         this.setState({ applications: data, loading: false });
       });
-  }
+    }
 
   static renderApplicationsTable(applications) {
     return (
@@ -22,6 +23,7 @@ export class Application extends Component {
             <th>Id</th>
             <th>Name</th>
             <th>Url</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -29,7 +31,8 @@ export class Application extends Component {
               <tr key={application.id}>
                   <td>{application.id}</td>
                     <td>{application.name}</td>
-                    <td>{application.url}</td>
+                  <td>{application.url}</td>
+                  <td><Link to={`/application/details/${application.id}`}>Details</Link></td>
             </tr>
           )}
         </tbody>

@@ -5,7 +5,6 @@ It's a WIP project, there's missing features like:
 - Auth
 - CI and CD
 - migrations
-- Tests
 
 
 ## Table of Contents
@@ -17,12 +16,6 @@ It's a WIP project, there's missing features like:
   - [npm run build](#npm-run-build)
   - [npm run eject](#npm-run-eject)
 - [Supported Language Features and Polyfills](#supported-language-features-and-polyfills)
-- [Running Tests](#running-tests)
-  - [Filename Conventions](#filename-conventions)
-  - [Command Line Interface](#command-line-interface)
-  - [Version Control Integration](#version-control-integration)
-  - [Writing Tests](#writing-tests)
-  - [Testing Components](#testing-components)
   
 
 ## Folder Structure
@@ -117,12 +110,6 @@ Note that **the project only includes a few ES6 [polyfills](https://en.wikipedia
 
 If you use any other ES6+ features that need **runtime support** (such as `Array.from()` or `Symbol`), make sure you are including the appropriate polyfills manually, or that the browsers you are targeting already support them.
 
-## Running Tests
+## Tests
 
-Create React App uses [Jest](https://facebook.github.io/jest/) as its test runner. To prepare for this integration, we did a [major revamp](https://facebook.github.io/jest/blog/2016/09/01/jest-15.html) of Jest so if you heard bad things about it years ago, give it another try.
-
-Jest is a Node-based runner. This means that the tests always run in a Node environment and not in a real browser. This lets us enable fast iteration speed and prevent flakiness.
-
-While Jest provides browser globals such as `window` thanks to [jsdom](https://github.com/tmpvar/jsdom), they are only approximations of the real browser behavior. Jest is intended to be used for unit tests of your logic and your components rather than the DOM quirks.
-
-We recommend that you use a separate tool for browser end-to-end tests if you need them. They are beyond the scope of Create React App.
+There are unit tests on front-end and back-end

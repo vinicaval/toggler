@@ -20,7 +20,7 @@ namespace Toggler.Controllers
         }
 
         [HttpGet()]
-        public async Task<IEnumerable<Application>> Get()
+        public async Task<IEnumerable<Application>> GetAll()
         {
             return await _applicationRepository.GetAllAsync();
         }
@@ -35,6 +35,14 @@ namespace Toggler.Controllers
         public async Task<IActionResult> Post([FromBody] Application application)
         {
             await _applicationRepository.InsertAsync(application);
+
+            return Ok();
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> PostToggle([FromQuery] Guid IdApplication, [FromBody]IEnumerable<Feature> features)
+        {
+            await _applicationRepository.InsertToggleAsync(IdApplication, features);
 
             return Ok();
         }

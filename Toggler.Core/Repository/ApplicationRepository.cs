@@ -62,7 +62,28 @@ namespace Toggler.Core.Repository
                 sb.AppendLine("VALUES (@Name, @Url)");
 
                 await conn.ExecuteAsync(sb.ToString(), application);
+            }
 
+        }
+
+        public async Task InsertToggleAsync(Guid idApplication, IEnumerable<Feature> features)
+        {
+            using (var conn = new SqlConnection(_connectionOptions.SQL_CONNECTION))
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.AppendLine("DELETE FROM [ApplicationFeature] ");
+                sb.AppendLine("WHERE IdApplication = @idApplication");
+
+                await conn.ExecuteAsync(sb.ToString(), new { idApplication });
+
+                sb.Clear();
+
+                foreach(var feature in features) { 
+                    sb.AppendLine("INSERT INTO [ApplicationFeature] (IdApplication, IdFeature, Active)");
+                    sb.AppendLine("VALUES (@idApplication, @idFeature, @active)");
+
+                    await conn.ExecuteAsync(sb.ToString(), new { idApplication, idFeature = feature.Id, active = feature.Active });
+                }
             }
 
         }
